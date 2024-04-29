@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+                xmlns:layout="http://www.ultraq.net.nz/thymleaf/layout"
+                xmlns:sec="http://www.thymeleaf.org/extras/spring-security" >
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/webjars/bootstrap/5.3.3/css/bootstrap.min.css" 
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div layout:fragment="content">
+        <iframe th:src="@{/template1}" width="100%" height="50px" frameborder="0" scrolling="no"></iframe>
+        <!-- <iframe src="template1.html" width="100%" height="50px" frameborder="0"></iframe> -->
+
+    <div class="container">
+        <div class="card">
+            <div class="card-header">list des users:</div>
+            <a class="nav-link" target="_parent" href="#"><span sec:authentication="name"></span></a>
+
+        
+        <div class="card-body">
+            <table class="table">
+                <thead>
+                    <tr><th>Id</th><th>name</th><th>email</th><th>password</th><th>role</th></tr>
+                </thead>
+                <tbody>
+                    <tr th:each="p:${users}" >
+                        <td th:text="${p.id}"></td>
+                        <td th:text="${p.name}"></td>
+                        <td th:text="${p.email}"></td>
+                        <td th:text="${p.password}"></td>
+                        <td th:text="${p.role}"></td>
+                        
+        
+                    </tr>
+                </tbody>
+            </table>
+        </div></div>
+    </div>
+    </div>
+    
+    
+</body>
+</html>
